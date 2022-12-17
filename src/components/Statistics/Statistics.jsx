@@ -1,38 +1,27 @@
-import css from './Statistics.module.css';
 import PropTypes from 'prop-types';
 
-function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-}
-
-export default function Statistics({ title, stats }) {
+export default function Statistics({
+  good,
+  neutral,
+  bad,
+  total,
+  positivePercentage,
+}) {
   return (
-    <section className={css.statistics}>
-      {title && <h2 className={css.title}>{title}</h2>}
-
-      <ul className={css.stat_list}>
-        {stats.map(data => (
-          <li
-            className={css.item}
-            key={data.id}
-            style={{ backgroundColor: getRandomHexColor() }}
-          >
-            <span className={css.label}>{data.label}</span>
-            <span className={css.percentage}>{data.percentage}%</span>
-          </li>
-        ))}
-      </ul>
-    </section>
+    <ul>
+      <li>Good: {good}</li>
+      <li>Neutral: {neutral}</li>
+      <li>Bad: {bad}</li>
+      <li>Total: {total}</li>
+      <li>Positive feedback: {positivePercentage}%</li>
+    </ul>
   );
 }
 
 Statistics.propTypes = {
-  title: PropTypes.string,
-  stats: PropTypes.arrayOf(
-    PropTypes.exact({
-      id: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
-      percentage: PropTypes.number.isRequired,
-    }).isRequired
-  ).isRequired,
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.number.isRequired,
 };

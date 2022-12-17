@@ -1,0 +1,13 @@
+.status {
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  border-radius: 50%;
+  /* background-color: blueviolet; */
+}
+
+.name {
+  font-size: 24px;
+  font-weight: 500;
+}

@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Button } from './FeedbackOptions.styled';
 
 const capitalizeFirst = str => {
   return str.charAt(0).toUpperCase() + str.slice(1);
@@ -6,9 +7,9 @@ const capitalizeFirst = str => {
 
 export default function FeedbackOptions({ text, onLeaveFeedback }) {
   return (
-    <button type="button" name={text} onClick={onLeaveFeedback}>
+    <Button type="button" name={text} onClick={onLeaveFeedback}>
       {capitalizeFirst(text)}
-    </button>
+    </Button>
   );
 }
 

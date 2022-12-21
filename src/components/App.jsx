@@ -33,18 +33,14 @@ class App extends Component {
   };
 
   render() {
-    const feedbackList = Object.keys(this.state);
     const { good, neutral, bad } = this.state;
     return (
       <div>
         <Section title="Please leave feedback">
-          {feedbackList.map(key => (
-            <FeedbackOptions
-              text={key}
-              onLeaveFeedback={this.handleLeaveFeedback}
-              key={key}
-            />
-          ))}
+          <FeedbackOptions
+            objState={this.state}
+            onLeaveFeedback={this.handleLeaveFeedback}
+          />
         </Section>
         <Section title="Statistics">
           {this.countTotalFeedback() ? (
